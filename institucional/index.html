@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MOG Sistemas Digitais — Evolução Operacional com IA</title>
-  <meta name="description" content="Organizamos a rotina do negócio e colocamos tarefas para rodarem automaticamente com apoio de IA." />
+  <title>MOG Sistemas Digitais — Agentes de IA sob medida</title>
+  <meta name="description" content="Criamos agentes de IA personalizados para tarefas e produtos do seu negócio." />
 
   <!-- Fonte moderna -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,33 +13,32 @@
 
   <style>
     :root{
-      /* Paleta baseada no logo (tons aproximados) */
+      /* Paleta (mantida) */
       --g-900:#064a3b;
       --g-800:#0b5a48;
       --g-700:#0f6b56;
       --g-600:#167a62;
-      --g-500:#1aa380; /* acento mais vivo */
+      --g-500:#1aa380;
       --mint:#42d3b3;
 
-      --ink:#1f2937;
+      --ink:#111827;
       --muted:#4b5563;
       --muted2:#6b7280;
 
-      --paper:#f7faf9;
+      --paper:#f4f7f6;
       --card:#ffffff;
       --line: rgba(2, 84, 67, .12);
 
-      --shadow: 0 14px 40px rgba(17, 24, 39, .10);
-      --shadow2: 0 8px 22px rgba(17, 24, 39, .10);
+      --shadow: 0 18px 50px rgba(17, 24, 39, .12);
+      --shadow2: 0 10px 28px rgba(17, 24, 39, .10);
 
       --radius: 18px;
       --radius2: 22px;
-
-      --max: 1080px;
+      --max: 1120px;
     }
 
-    *{ box-sizing: border-box; }
-    html{ scroll-behavior: smooth; }
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
     body{
       margin:0;
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
@@ -48,105 +47,82 @@
       line-height: 1.6;
     }
 
-    /* Helpers */
+    /* Layout helpers */
     .container{ width:min(var(--max), calc(100% - 40px)); margin:0 auto; }
     .center{ text-align:center; }
     .muted{ color: var(--muted); }
     .muted2{ color: var(--muted2); }
-
-    /* Background “curves” por seção (sem imagens) */
-    .bg-hero{
-      background:
-        radial-gradient(900px 420px at 50% -50px, rgba(26,163,128,.22), transparent 65%),
-        radial-gradient(800px 380px at 15% 15%, rgba(66,211,179,.18), transparent 60%),
-        linear-gradient(180deg, rgba(6,74,59,.06), rgba(6,74,59,0) 60%);
-    }
-    .bg-problem{
-      background:
-        linear-gradient(180deg, rgba(6,74,59,.08), rgba(6,74,59,0) 55%),
-        radial-gradient(900px 420px at 85% 0%, rgba(26,163,128,.16), transparent 60%);
-    }
-    .bg-steps{
-      background:
-        linear-gradient(180deg, rgba(6,74,59,0), rgba(6,74,59,.08) 40%, rgba(6,74,59,0) 100%),
-        radial-gradient(900px 420px at 25% 10%, rgba(66,211,179,.14), transparent 60%);
-    }
-    .bg-portfolio{
-      background:
-        linear-gradient(180deg, rgba(6,74,59,.07), rgba(6,74,59,0) 70%),
-        radial-gradient(900px 420px at 50% 0%, rgba(26,163,128,.12), transparent 60%);
-    }
-    .bg-cta{
-      background:
-        radial-gradient(1000px 520px at 50% 0%, rgba(6,74,59,.26), rgba(6,74,59,.10) 45%, rgba(6,74,59,.08) 70%, rgba(6,74,59,.06) 100%),
-        linear-gradient(180deg, rgba(6,74,59,.16), rgba(6,74,59,.10));
-      color: #eef7f5;
+    .caps{
+      font-size: 13px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(6,74,59,.65);
+      font-weight: 800;
     }
 
-    /* Section spacing + dividers */
-    section{
-      position: relative;
-      padding: 64px 0;
+    /* Top nav (padrão do anexo) */
+    .topbar{
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(244,247,246,.86);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(2,84,67,.10);
     }
-    .divider{
-      height: 1px;
-      background: rgba(2, 84, 67, .10);
-      width: 100%;
-    }
-
-    /* Header */
-    header{
-      padding: 26px 0 12px;
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding: 14px 0;
+      gap: 16px;
     }
     .brand{
       display:flex;
       align-items:center;
-      justify-content:center;
-      gap:14px;
-      flex-direction: column;
+      gap: 12px;
+      text-decoration:none;
+      color: inherit;
+      min-width: 210px;
     }
     .brand img{
-      height: 66px;
+      height: 34px;
       width: auto;
       display:block;
-      filter: drop-shadow(0 10px 24px rgba(0,0,0,.10));
+      filter: drop-shadow(0 10px 20px rgba(0,0,0,.08));
+    }
+    .navlinks{
+      display:flex;
+      gap: 18px;
+      align-items:center;
+      justify-content:center;
+      flex: 1;
+    }
+    .navlinks a{
+      font-size: 14px;
+      color: rgba(17,24,39,.72);
+      text-decoration:none;
+      font-weight: 600;
+      padding: 8px 10px;
+      border-radius: 10px;
+    }
+    .navlinks a:hover{
+      background: rgba(6,74,59,.06);
+      color: rgba(17,24,39,.90);
     }
 
-    /* Typography */
-    h1{
-      margin: 18px 0 0;
-      font-size: clamp(30px, 3.6vw, 42px);
-      line-height: 1.12;
-      letter-spacing: -0.7px;
-      font-weight: 800;
-    }
-    h2{
-      margin: 0;
-      font-size: clamp(22px, 2.6vw, 30px);
-      line-height: 1.15;
-      letter-spacing: -0.4px;
-      font-weight: 800;
-    }
-    .lead{
-      margin: 14px auto 0;
-      max-width: 72ch;
-      font-size: 17px;
-    }
-    .lead strong{ color: var(--g-700); font-weight: 800; }
-
-    /* Buttons (padrão da última imagem) */
+    /* Buttons */
     .btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
       gap:10px;
-      padding: 14px 28px;
+      padding: 14px 22px;
       border-radius: 14px;
       font-weight: 800;
-      font-size: 15px;
+      font-size: 14.5px;
       text-decoration:none;
-      border: 1px solid rgba(255,255,255,.12);
-      box-shadow: 0 12px 26px rgba(0,0,0,.20);
+      border: 1px solid rgba(255,255,255,.14);
+      box-shadow: 0 12px 26px rgba(0,0,0,.18);
       transition: transform .12s ease, filter .12s ease;
       user-select:none;
       cursor:pointer;
@@ -159,7 +135,7 @@
       background: linear-gradient(180deg, rgba(15,107,86,1), rgba(6,74,59,1));
       border-color: rgba(255,255,255,.18);
     }
-    .btn-primary span{
+    .btn-primary .arrow{
       display:inline-flex;
       width: 22px; height: 22px;
       border-radius: 999px;
@@ -167,143 +143,315 @@
       background: rgba(255,255,255,.14);
       border: 1px solid rgba(255,255,255,.14);
       font-size: 14px;
+      line-height: 1;
     }
 
-    /* Cards */
-    .grid-3{
-      margin-top: 28px;
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-    .grid-5{
-      margin-top: 22px;
-      display:grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 14px;
-    }
-    .card{
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow2);
-      padding: 20px 18px;
-      text-align:left;
-    }
-    .card h3{
-      margin: 10px 0 0;
-      font-size: 18px;
-      letter-spacing: -0.2px;
-      font-weight: 800;
-    }
-    .card p{
-      margin: 10px 0 0;
-      color: var(--muted);
-      font-size: 14.8px;
-    }
-    .icon{
-      width: 58px;
-      height: 58px;
-      border-radius: 14px;
-      background: linear-gradient(180deg, rgba(26,163,128,.12), rgba(6,74,59,.06));
-      border: 1px solid rgba(2, 84, 67, .10);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight: 900;
-      color: var(--g-800);
-      overflow:hidden;
-    }
-    .icon img{ width: 44px; height: 44px; object-fit: contain; }
-
-    /* Step cards (5 colunas) */
-    .step{
-      background: rgba(255,255,255,.92);
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      box-shadow: var(--shadow2);
-      overflow:hidden;
-    }
-    .step-top{
-      height: 66px;
-      background: linear-gradient(135deg, rgba(26,163,128,.18), rgba(6,74,59,.06));
-      display:flex;
-      align-items:center;
-      gap:10px;
-      padding: 10px 12px;
-    }
-    .step-top .n{
-      width: 34px; height: 34px;
+    .btn-ghost{
+      color: rgba(255,255,255,.92);
+      background: linear-gradient(180deg, rgba(11,90,72,1), rgba(6,74,59,1));
+      border-color: rgba(255,255,255,.18);
+      padding: 10px 14px;
+      font-size: 13.5px;
       border-radius: 12px;
-      display:flex; align-items:center; justify-content:center;
-      font-weight: 900;
-      color: #0a5747;
-      background: rgba(255,255,255,.75);
-      border: 1px solid rgba(2, 84, 67, .12);
-    }
-    .step-top img{ width: 40px; height: 40px; object-fit: contain; }
-    .step-body{
-      padding: 12px 12px 14px;
-      text-align:left;
-    }
-    .step-body strong{
-      display:block;
-      font-weight: 900;
-      letter-spacing: -0.2px;
-    }
-    .step-body p{
-      margin: 8px 0 0;
-      color: var(--muted);
-      font-size: 13.8px;
     }
 
-    /* Portfolio logos */
-    .logos{
+    /* Sections */
+    section{ padding: 56px 0; }
+    .divider{
+      height: 1px;
+      background: rgba(2, 84, 67, .10);
+      width: 100%;
+    }
+
+    /* Hero (2 colunas) */
+    .hero{
+      background:
+        radial-gradient(900px 520px at 70% -10%, rgba(26,163,128,.18), transparent 60%),
+        radial-gradient(900px 520px at 20% 10%, rgba(66,211,179,.16), transparent 60%),
+        linear-gradient(180deg, rgba(6,74,59,.06), rgba(6,74,59,0) 62%);
+      padding-top: 34px;
+      padding-bottom: 42px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.15fr .95fr;
+      gap: 28px;
+      align-items:center;
+    }
+    h1{
+      margin: 8px 0 0;
+      font-size: clamp(30px, 3.6vw, 44px);
+      line-height: 1.08;
+      letter-spacing: -0.8px;
+      font-weight: 900;
+    }
+    .hero p{
+      margin: 14px 0 0;
+      font-size: 16.5px;
+      color: rgba(17,24,39,.72);
+      max-width: 62ch;
+    }
+    .hero p strong{ color: var(--g-700); font-weight: 900; }
+    .hero-actions{
       margin-top: 18px;
       display:flex;
-      align-items:center;
-      justify-content:center;
-      gap: 24px;
+      gap: 12px;
       flex-wrap: wrap;
+      align-items:center;
     }
-    .logo-badge{
-      height: 34px;
-      width: auto;
-      opacity: .92;
+    .microline{
+      margin-top: 12px;
+      display:flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      align-items:center;
+      color: rgba(17,24,39,.60);
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .microline span{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      background: rgba(255,255,255,.60);
+      border: 1px solid rgba(2,84,67,.10);
+      padding: 8px 12px;
+      border-radius: 999px;
+      box-shadow: 0 10px 18px rgba(17,24,39,.06);
+    }
+    .hero-visual{
+      border-radius: 22px;
+      background:
+        radial-gradient(420px 260px at 50% 10%, rgba(26,163,128,.18), transparent 70%),
+        linear-gradient(180deg, rgba(255,255,255,.72), rgba(255,255,255,.52));
+      border: 1px solid rgba(2,84,67,.12);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      min-height: 320px;
+      position: relative;
+    }
+    .hero-visual img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display:block;
+      opacity: .95;
       filter: saturate(1.05);
     }
-    .portfolio-actions{
-      margin-top: 18px;
+    .hero-visual .fallback{
+      position:absolute;
+      inset:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color: rgba(17,24,39,.55);
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      font-size: 12px;
     }
 
-    /* CTA final */
-    .cta-wrap{
+    /* Cards padrão LP */
+    .card{
+      background: rgba(255,255,255,.88);
+      border: 1px solid rgba(2,84,67,.12);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow2);
+    }
+
+    .section-title{
       text-align:center;
-      padding: 74px 0 64px;
+      margin-bottom: 22px;
     }
-    .cta-wrap h2{
-      color: #f1fffb;
-      font-size: clamp(26px, 3.0vw, 38px);
-      letter-spacing: -0.6px;
+    .section-title h2{
+      margin: 10px 0 0;
+      font-size: clamp(22px, 2.6vw, 30px);
+      letter-spacing: -0.4px;
+      font-weight: 900;
     }
-    .cta-wrap p{
-      margin: 14px auto 0;
+    .section-title p{
+      margin: 10px auto 0;
       max-width: 78ch;
-      font-size: 17.5px;
+      color: rgba(17,24,39,.62);
+      font-size: 15.5px;
+    }
+
+    /* 3 cards (Executar/Analisar/Apoiar) */
+    .grid-3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 18px;
+    }
+    .info-card{
+      padding: 18px 18px 16px;
+      text-align:left;
+    }
+    .info-head{
+      display:flex;
+      gap: 12px;
+      align-items:center;
+    }
+    .icon{
+      width: 54px; height: 54px;
+      border-radius: 14px;
+      background: linear-gradient(180deg, rgba(26,163,128,.14), rgba(6,74,59,.06));
+      border: 1px solid rgba(2, 84, 67, .10);
+      display:flex; align-items:center; justify-content:center;
+      overflow:hidden;
+      flex: 0 0 auto;
+    }
+    .icon img{ width: 40px; height: 40px; object-fit: contain; }
+    .info-card h3{
+      margin: 0;
+      font-size: 18px;
+      letter-spacing: -0.2px;
+      font-weight: 900;
+    }
+    .info-card p{
+      margin: 10px 0 0;
+      color: rgba(17,24,39,.64);
+      font-size: 14.7px;
+    }
+
+    .section-note{
+      margin-top: 16px;
+      text-align:center;
+      color: rgba(17,24,39,.62);
+      font-weight: 600;
+    }
+    .section-note strong{ color: rgba(6,74,59,.90); font-weight: 900; }
+
+    /* “Duas formas” (2 cards largos) */
+    .grid-2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 18px;
+    }
+    .wide-card{
+      padding: 18px;
+      text-align:left;
+      display:flex;
+      gap: 14px;
+      align-items:flex-start;
+    }
+    .wide-card h3{
+      margin: 0;
+      font-size: 18px;
+      font-weight: 900;
+      letter-spacing: -0.2px;
+    }
+    .wide-card p{
+      margin: 8px 0 0;
+      color: rgba(17,24,39,.66);
+      font-size: 14.7px;
+    }
+    .checklist{
+      margin: 10px 0 0;
+      padding: 0 0 0 18px;
+      color: rgba(17,24,39,.64);
+      font-size: 14.3px;
+    }
+    .checklist li{ margin: 6px 0; }
+
+    /* Seção “Alguns agentes” (cards com logos) */
+    .agents-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 18px;
+    }
+    .agent-card{
+      padding: 18px;
+      text-align:left;
+    }
+    .agent-top{
+      display:flex;
+      gap: 14px;
+      align-items:center;
+    }
+    .agent-logo{
+      width: 92px;
+      height: 72px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.70);
+      border: 1px solid rgba(2,84,67,.10);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+      box-shadow: 0 10px 18px rgba(17,24,39,.08);
+      flex: 0 0 auto;
+    }
+    .agent-logo img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display:block;
+    }
+    .agent-card h3{
+      margin:0;
+      font-size: 18px;
+      font-weight: 900;
+      letter-spacing: -0.2px;
+    }
+    .agent-card .tag{
+      margin-top: 6px;
+      font-size: 13px;
+      font-weight: 800;
+      color: rgba(6,74,59,.85);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+    .agent-card p{
+      margin: 10px 0 0;
+      color: rgba(17,24,39,.66);
+      font-size: 14.7px;
+    }
+    .agent-list{
+      margin: 10px 0 0;
+      padding: 0 0 0 18px;
+      color: rgba(17,24,39,.64);
+      font-size: 14.3px;
+    }
+    .agent-list li{ margin: 6px 0; }
+
+    /* CTA final em faixa */
+    .cta{
+      background:
+        radial-gradient(1000px 520px at 50% 0%, rgba(6,74,59,.34), rgba(6,74,59,.16) 50%, rgba(6,74,59,.10) 100%),
+        linear-gradient(180deg, rgba(6,74,59,.18), rgba(6,74,59,.22));
+      color: #eef7f5;
+      padding: 58px 0 0;
+      border-top: 1px solid rgba(255,255,255,.10);
+    }
+    .cta-inner{
+      padding: 18px 0 46px;
+      text-align:center;
+    }
+    .cta h2{
+      margin: 0;
+      font-size: clamp(24px, 3vw, 36px);
+      font-weight: 900;
+      letter-spacing: -0.6px;
+      color: #f1fffb;
+    }
+    .cta p{
+      margin: 12px auto 0;
+      max-width: 80ch;
+      font-size: 16.5px;
       color: rgba(238,247,245,.92);
     }
-    .cta-actions{
-      margin-top: 22px;
-    }
-    .micro{
+    .cta-actions{ margin-top: 18px; }
+    .cta .micro{
       margin-top: 10px;
       font-size: 13px;
       color: rgba(238,247,245,.80);
+      font-weight: 600;
     }
-
-    /* Footer */
     footer{
-      padding: 22px 0 26px;
+      padding: 18px 0 22px;
       text-align:center;
       color: rgba(238,247,245,.85);
       border-top: 1px solid rgba(255,255,255,.10);
@@ -313,76 +461,161 @@
 
     /* Responsive */
     @media (max-width: 980px){
+      .navlinks{ display:none; }
+      .hero-grid{ grid-template-columns: 1fr; }
+      .hero-visual{ min-height: 240px; }
       .grid-3{ grid-template-columns: 1fr; }
-      .grid-5{ grid-template-columns: 1fr; }
-      .brand img{ height: 60px; }
+      .grid-2{ grid-template-columns: 1fr; }
+      .agents-grid{ grid-template-columns: 1fr; }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- HERO / HEADER -->
-  <section class="bg-hero" id="inicio">
-    <div class="container center">
-      <header>
-        <div class="brand">
-          <!-- ajuste o caminho conforme seu repo: institucional/logo_inicial_01.jpg -->
-          <img src="logo_inicial_v1.png" alt="MOG Sistemas Digitais" />
-        </div>
-      </header>
-
-      <h1>Se sua empresa parar hoje, algumas pessoas levam o negócio junto.</h1>
-
-      <p class="lead muted">
-        Quando a operação depende de memória, conferência manual e decisões repetidas, o crescimento vira
-        <strong>esforço — não escala.</strong>
-      </p>
-
-      <p class="lead muted">
-        Organizamos a rotina do negócio e colocamos tarefas para rodarem
-        <strong>automaticamente com apoio de IA.</strong>
-      </p>
-
-      <div style="margin-top:22px;">
-        <a class="btn btn-primary" href="mailto:matheus.gomes@mogsistemasdigitais.com?subject=Diagnóstico%20Operacional%20-%20MOG">
-          Quero entender minha operação <span aria-hidden="true">→</span>
+  <!-- TOP NAV -->
+  <div class="topbar">
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="#inicio" aria-label="Ir para o início">
+          <img src="logo_inicial_v1.png" alt="MOG Sistemas Digitais">
         </a>
+
+        <nav class="navlinks" aria-label="Menu">
+          <a href="#sobre">Sobre Agentes</a>
+          <a href="#como-funciona">Como Funciona</a>
+          <a href="#exemplos">Exemplos</a>
+          <a href="#contato">Contato</a>
+        </nav>
+
+        <a class="btn btn-ghost" href="mailto:matheus.gomes@mogsistemasdigitais.com?subject=Agentes%20de%20IA%20-%20Falar%20com%20especialista">
+          Falar com especialista
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <div class="caps">AGENTES DE IA SOB MEDIDA</div>
+          <h1>Crie agentes de IA feitos para o seu negócio.</h1>
+
+          <p>
+            Entendemos onde a inteligência artificial pode ajudar e construímos um agente utilizável no seu dia a dia —
+            <strong>interno</strong> ou <strong>dentro do seu produto</strong>.
+          </p>
+
+          <p>
+            Não entregamos sistemas genéricos. <strong>Transformamos necessidades reais em comportamentos inteligentes.</strong>
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="mailto:matheus.gomes@mogsistemasdigitais.com?subject=Quero%20criar%20um%20agente%20de%20IA%20-%20MOG">
+              Quero criar um agente para meu negócio <span class="arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+
+          <div class="microline" aria-label="Destaques rápidos">
+            <span>✅ Resposta rápida</span>
+            <span>✅ Sem compromisso</span>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-label="Imagem ilustrativa">
+          <!-- Use uma imagem sua aqui (ex.: a arte que você vem gerando). -->
+          <img src="hero_mock.jpg" alt="" onerror="this.style.display='none'; this.parentElement.querySelector('.fallback').style.display='flex';">
+          <div class="fallback" style="display:none;">Imagem do Hero</div>
+        </div>
       </div>
     </div>
   </section>
 
   <div class="divider"></div>
 
-  <!-- PROBLEMA -->
-  <section class="bg-problem" id="problema">
-    <div class="container center">
-      <h2>O problema invisível</h2>
+  <!-- SOBRE / O QUE FAZ -->
+  <section id="sobre">
+    <div class="container">
+      <div class="section-title">
+        <div class="caps">O QUE UM AGENTE PODE FAZER</div>
+        <h2>Onde um agente de IA pode atuar</h2>
+        <p>Um agente não é “um chatbot genérico”. Ele atua com objetivo, contexto e limites claros dentro do seu negócio.</p>
+      </div>
 
       <div class="grid-3">
-        <div class="card">
-          <div class="icon">
-            <!-- coloque seus ícones aqui (png/svg). Ex: icons/controle.png -->
-            <img src="icons/controle.png" alt="" onerror="this.remove(); this.parentElement.textContent='▦';">
+        <div class="card info-card">
+          <div class="info-head">
+            <div class="icon">
+              <img src="icons/execute.png" alt="" onerror="this.remove(); this.parentElement.textContent='✓';">
+            </div>
+            <h3>Executar</h3>
           </div>
-          <h3>Mais trabalho, menos controle</h3>
-          <p>O crescimento aumenta a complexidade mais rápido do que a organização.</p>
+          <p>Realiza tarefas que antes dependiam de alguém conferir, organizar ou responder.</p>
         </div>
 
-        <div class="card">
-          <div class="icon">
-            <img src="icons/pessoa.png" alt="" onerror="this.remove(); this.parentElement.textContent='👥';">
+        <div class="card info-card">
+          <div class="info-head">
+            <div class="icon">
+              <img src="icons/analyze.png" alt="" onerror="this.remove(); this.parentElement.textContent='⌁';">
+            </div>
+            <h3>Analisar</h3>
           </div>
-          <h3>Dependência de pessoas</h3>
-          <p>Quando alguém falta, o negócio trava.</p>
+          <p>Observa informações do seu contexto e prepara entendimento útil para a equipe.</p>
         </div>
 
-        <div class="card">
-          <div class="icon">
-            <img src="icons/decisao.png" alt="" onerror="this.remove(); this.parentElement.textContent='✓';">
+        <div class="card info-card">
+          <div class="info-head">
+            <div class="icon">
+              <img src="icons/support.png" alt="" onerror="this.remove(); this.parentElement.textContent='⚑';">
+            </div>
+            <h3>Apoiar</h3>
           </div>
-          <h3>Decisão manual</h3>
-          <p>Tempo gasto conferindo ao invés de decidir.</p>
+          <p>Sugere caminhos e ajuda a equipe a agir com mais clareza (sem “tomar controle”).</p>
+        </div>
+      </div>
+
+      <div class="section-note">
+        Um agente não é apenas automação. Ele entende o <strong>contexto</strong> e participa da rotina.
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- COMO FUNCIONA -->
+  <section id="como-funciona">
+    <div class="container">
+      <div class="section-title">
+        <div class="caps">COMO FUNCIONA</div>
+        <h2>Como transformamos sua necessidade em um agente</h2>
+        <p>Um fluxo simples e objetivo: entender, estruturar comportamento, implementar e ajustar até virar uso real.</p>
+      </div>
+
+      <div class="grid-3">
+        <div class="card info-card">
+          <div class="info-head">
+            <div class="icon"><span style="font-weight:900;color:var(--g-800);">01</span></div>
+            <h3>Entendimento</h3>
+          </div>
+          <p>Compreendemos o uso real e o objetivo do negócio (sem “consultoria de operação”).</p>
+        </div>
+
+        <div class="card info-card">
+          <div class="info-head">
+            <div class="icon"><span style="font-weight:900;color:var(--g-800);">02</span></div>
+            <h3>Comportamento</h3>
+          </div>
+          <p>Definimos como o agente deve agir, responder, interpretar e quais limites respeitar.</p>
+        </div>
+
+        <div class="card info-card">
+          <div class="info-head">
+            <div class="icon"><span style="font-weight:900;color:var(--g-800);">03</span></div>
+            <h3>Implementação</h3>
+          </div>
+          <p>Construímos e integramos para o agente funcionar no fluxo do cliente (rotina ou produto).</p>
         </div>
       </div>
     </div>
@@ -390,112 +623,125 @@
 
   <div class="divider"></div>
 
-  <!-- EVOLUÇÃO -->
-  <section class="bg-steps" id="evolucao">
-    <div class="container center">
-      <h2>Como a operação evolui</h2>
+  <!-- DUAS FORMAS -->
+  <section>
+    <div class="container">
+      <div class="section-title">
+        <div class="caps">FORMATOS DE ENTREGA</div>
+        <h2>O agente pode atuar de duas formas</h2>
+        <p>Interno para rotina da equipe, ou como parte do seu produto para atender seus clientes.</p>
+      </div>
 
-      <div class="grid-5">
-        <div class="step">
-          <div class="step-top">
-            <div class="n">1</div>
-            <img src="icons/1.png" alt="" onerror="this.remove();">
+      <div class="grid-2">
+        <div class="card wide-card">
+          <div class="icon">
+            <span style="font-weight:900;color:var(--g-800);">◎</span>
           </div>
-          <div class="step-body">
-            <strong>Diagnóstico</strong>
-            <p>Mapeamos gargalos reais da rotina.</p>
+          <div>
+            <h3>Interno</h3>
+            <p>Ajuda sua equipe no trabalho diário — organiza, analisa, responde e prepara ações.</p>
+            <ul class="checklist">
+              <li>Organiza informações e contexto</li>
+              <li>Responde e apoia fluxos internos</li>
+              <li>Prepara sínteses e próximos passos</li>
+            </ul>
           </div>
         </div>
 
-        <div class="step">
-          <div class="step-top">
-            <div class="n">2</div>
-            <img src="icons/2.png" alt="" onerror="this.remove();">
+        <div class="card wide-card">
+          <div class="icon">
+            <span style="font-weight:900;color:var(--g-800);">▣</span>
           </div>
-          <div class="step-body">
-            <strong>Estrutura digital</strong>
-            <p>Organizamos o fluxo previsível.</p>
+          <div>
+            <h3>Produto</h3>
+            <p>Passa a fazer parte do que você oferece ao seu cliente — assistentes, copilotos e avaliadores.</p>
+            <ul class="checklist">
+              <li>Assistentes e copilotos especializados</li>
+              <li>Experiência guiada no produto</li>
+              <li>Validações e orientações automatizadas</li>
+            </ul>
           </div>
         </div>
+      </div>
 
-        <div class="step">
-          <div class="step-top">
-            <div class="n">3</div>
-            <img src="icons/3.png" alt="" onerror="this.remove();">
-          </div>
-          <div class="step-body">
-            <strong>Automação</strong>
-            <p>Eliminamos tarefas repetitivas.</p>
-          </div>
-        </div>
-
-        <div class="step">
-          <div class="step-top">
-            <div class="n">4</div>
-            <img src="icons/4.png" alt="" onerror="this.remove();">
-          </div>
-          <div class="step-body">
-            <strong>IA aplicada</strong>
-            <p>Agentes executam análises.</p>
-          </div>
-        </div>
-
-        <div class="step">
-          <div class="step-top">
-            <div class="n">5</div>
-            <img src="icons/5.png" alt="" onerror="this.remove();">
-          </div>
-          <div class="step-body">
-            <strong>Evolução contínua</strong>
-            <p>A operação melhora junto.</p>
-          </div>
-        </div>
+      <div class="section-note">
+        Você não precisa escolher tecnologia. Nós ajudamos a transformar a ideia em <strong>algo utilizável</strong>.
       </div>
     </div>
   </section>
 
   <div class="divider"></div>
 
-  <!-- PORTFÓLIO / PROVA SOCIAL -->
-  <section class="bg-portfolio" id="portfolio">
-    <div class="container center">
-      <h2>clientes que já colocaram essa evolução em prática</h2>
-
-      <!-- Use imagens reais de logos (png/svg) na pasta /logos -->
-      <div class="logos" aria-label="Logos de clientes">
-        <img class="logo-badge" src="logos/assai.png" alt="Assaí" onerror="this.style.display='none';">
-        <img class="logo-badge" src="logos/next.png" alt="Next" onerror="this.style.display='none';">
-        <img class="logo-badge" src="logos/cvc.png" alt="CVC" onerror="this.style.display='none';">
-        <img class="logo-badge" src="logos/cdsc.png" alt="CDSC" onerror="this.style.display='none';">
-        <img class="logo-badge" src="logos/cresol.png" alt="Cresol" onerror="this.style.display='none';">
+  <!-- EXEMPLOS (NOVA PROVA SOCIAL) -->
+  <section id="exemplos">
+    <div class="container">
+      <div class="section-title">
+        <div class="caps">EXEMPLOS REAIS</div>
+        <h2>Alguns agentes de IA criados pela MOG</h2>
+        <p>Cada agente nasce de uma necessidade específica — não de um modelo genérico.</p>
       </div>
 
-      <div class="portfolio-actions">
-        <a class="btn btn-primary" href="#cta">
-          Iniciar diagnóstico <span aria-hidden="true">→</span>
-        </a>
+      <div class="agents-grid">
+        <div class="card agent-card">
+          <div class="agent-top">
+            <div class="agent-logo">
+              <img src="logo_z2c_01.png" alt="Z2C | Crypto Start" onerror="this.style.display='none';">
+            </div>
+            <div>
+              <h3>Z2C | Crypto Start</h3>
+              <div class="tag">Agente educacional — cripto</div>
+            </div>
+          </div>
+          <p>Agente voltado ao entendimento do mercado cripto com foco em base, risco e comportamento.</p>
+          <ul class="agent-list">
+            <li>Explica conceitos e termos</li>
+            <li>Orienta leitura de cenário</li>
+            <li>Reduz decisões impulsivas</li>
+            <li>Acompanha evolução do usuário</li>
+          </ul>
+        </div>
+
+        <div class="card agent-card">
+          <div class="agent-top">
+            <div class="agent-logo">
+              <img src="logo_fiis_01.png" alt="FIIs-Lab" onerror="this.style.display='none';">
+            </div>
+            <div>
+              <h3>FIIs-Lab</h3>
+              <div class="tag">Agente educacional — FIIs</div>
+            </div>
+          </div>
+          <p>Agente focado em análise e interpretação de fundos imobiliários, organizando critérios e raciocínio.</p>
+          <ul class="agent-list">
+            <li>Interpreta indicadores</li>
+            <li>Estrutura raciocínio de avaliação</li>
+            <li>Apoia comparação de alternativas</li>
+            <li>Organiza tomada de decisão</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section-note">
+        Cada projeto evolui junto com o uso real do cliente.
       </div>
     </div>
   </section>
 
   <!-- CTA FINAL -->
-  <section class="bg-cta" id="cta">
+  <section class="cta" id="contato">
     <div class="container">
-      <div class="cta-wrap">
-        <h2>Vamos mapear onde sua operação está perdendo tempo — e onde dá pra rodar melhor com IA.</h2>
-
-        <p>
-          Essa primeira conversa é para entender seu contexto, identificar gargalos e mostrar oportunidades práticas de
-          automação e agentes de IA. Você sai com um diagnóstico inicial do que traria mais previsibilidade e menos retrabalho.
-        </p>
+      <div class="cta-inner">
+        <div class="caps" style="color: rgba(238,247,245,.78);">PRÓXIMO PASSO</div>
+        <h2>Tem algo que poderia ser feito por um agente no seu negócio?</h2>
+        <p>Conversamos para entender a ideia e mostrar como ela pode virar algo utilizável — interno ou dentro do seu produto.</p>
 
         <div class="cta-actions">
-          <a class="btn btn-primary" href="mailto:matheus.gomes@mogsistemasdigitais.com?subject=Diagnóstico%20Operacional%20-%20MOG">
-            Iniciar diagnóstico <span aria-hidden="true">→</span>
+          <a class="btn btn-primary" href="mailto:matheus.gomes@mogsistemasdigitais.com?subject=Quero%20criar%20um%20agente%20de%20IA%20-%20MOG">
+            Iniciar conversa <span class="arrow" aria-hidden="true">→</span>
           </a>
         </div>
 
-        <div class="micro">Sem proposta comercial nesta etapa.</div>
+        <div class="micro">Primeiro entendemos o uso • Sem proposta automática</div>
       </div>
     </div>
 
